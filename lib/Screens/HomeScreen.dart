@@ -7,9 +7,21 @@ class HomeScreens extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colorrs.Fifth,
+
       appBar: AppBar(
-        backgroundColor: Colorrs.Fourth,
+        toolbarHeight: 100,
+        shape:  RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(40),
+
+          )
+        ),
+        backgroundColor: Colorrs.Third,
         elevation: 0,
+        centerTitle: true,
+        title: Text("My Comm",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 22),),
+        leading: Image.asset("assets/photo/com.PNG",alignment: Alignment.centerRight,),
       ),
     );
   }
