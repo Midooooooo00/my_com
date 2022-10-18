@@ -50,8 +50,8 @@ class _SignInScreenState extends State<SignInScreen> {
                 .of(context)
                 .size
                 .width * 0.95,
-            padding: EdgeInsets.all(20),
-            margin: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             decoration: BoxDecoration(
                 boxShadow: [ BoxShadow(
                     blurRadius: 25.0,
@@ -86,11 +86,11 @@ class _SignInScreenState extends State<SignInScreen> {
                 child: Column(
                   children: [
                     Text("Sign In",style: TextStyle(color:Colorrs.Nine,fontSize: 18,fontWeight: FontWeight.bold ),),
-                    SizedBox(height: 20,),
-                    textfieldcustom(labeltext:"Enter Your Email",security: false,icontag:Icon (Icons.keyboard_alt_outlined),),
-                    SizedBox(height: 20,),
-                    textfieldcustom(labeltext:"Password",security:showpassword==false ? true : false,icontag:Icon (Icons.password),),
-                    SizedBox(height: 1,),
+                    const SizedBox(height: 20,),
+                    textfieldcustom(labeltext:"Enter Your Email",security: false,icontag:const Icon (Icons.keyboard_alt_outlined),),
+                    const SizedBox(height: 20,),
+                    textfieldcustom(labeltext:"Password",security:showpassword==false ? true : false,icontag:const Icon (Icons.password),),
+                    const SizedBox(height: 1,),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children:[
@@ -103,20 +103,20 @@ class _SignInScreenState extends State<SignInScreen> {
                             },
 
                           ),
-                          Text("Show My Password",style: TextStyle(fontWeight: FontWeight.bold),),
+                          const Text("Show My Password",style: TextStyle(fontWeight: FontWeight.bold),),
 
                         ]
                     ),
 
                     ElevatedButton(onPressed: (){
                       Navigator.pushNamed(context, "HomePage");
-                    }, child: Text("Sign In"),
-                      style: ElevatedButton.styleFrom(
-                      primary: Colorrs.Fourth,
-                      onPrimary: Colorrs.Nine,
-                      shape: StadiumBorder(),
+                    }, child: const Text("Sign In"),
+                  style: ElevatedButton.styleFrom(
+                      foregroundColor: Colorrs.Nine,
+                      backgroundColor: Colorrs.Fourth,
+                      shape: const StadiumBorder(),
                       shadowColor: Colorrs.First,
-                      minimumSize: Size.fromHeight(50)
+                      minimumSize: const Size.fromHeight(50)
                     ),)
                   ],
                 ),
