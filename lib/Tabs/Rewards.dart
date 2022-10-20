@@ -7,7 +7,6 @@ class rewards extends StatefulWidget {
   @override
   State<rewards> createState() => _rewardsState();
 }
-
 class _rewardsState extends State<rewards> {
   String titletext = "";
   String Description = "";
@@ -59,9 +58,7 @@ class _rewardsState extends State<rewards> {
             )),
         child: Column(
           children: [
-
             InkWell(
-
                 onTap: () {
                   showclender();
                 },
@@ -74,8 +71,13 @@ class _rewardsState extends State<rewards> {
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
                 )),
-            const SizedBox(height: 15,),
+            const SizedBox(height: 10,),
             Container(
+              padding: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+              border: Border.all(width: 2,color: Colorrs.Six,),
+               borderRadius: BorderRadius.all(Radius.circular(20))
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -83,12 +85,31 @@ class _rewardsState extends State<rewards> {
                   fontSize: 20,
                   fontWeight: FontWeight.bold),),
               const SizedBox(height: 10,),
+                  Text(
+                   "الشهر المحدد",
+                    style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colorrs.Ten),
+                    textAlign: TextAlign.center,),
+
               Text(
-                "${selectedate.year}/${selectedate.month}",
+                "${selectedate.month}",
                 style: TextStyle(fontWeight: FontWeight.bold,
                     fontSize: 18,
-                    color: Colorrs.Ten),
-                textAlign: TextAlign.center,)
+                    color: Colorrs.Nine),
+                textAlign: TextAlign.center,),
+                  Text(
+                    "العام المحدد",
+                    style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colorrs.Ten),
+                    textAlign: TextAlign.center,),
+                  Text(
+                    "${selectedate.year}",
+                    style: TextStyle(fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colorrs.Nine),
+                    textAlign: TextAlign.center,),
                 ],
               ),
             )
