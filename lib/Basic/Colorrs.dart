@@ -11,4 +11,5 @@ class Colorrs {
   static Color Seven = const Color(0xFF90E0EF);
   static Color Eight = const Color(0xFFADE8F4);
   static Color Nine = const Color(0xFFCAF0F8);
+  static Color Ten = const Color(0xFF000814);
   }
