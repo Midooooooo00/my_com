@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:hive/hive.dart';
+import 'package:my_com/Widget/datestyle.dart';
 import '../Basic/Colorrs.dart';
 
-
 class rewards extends StatefulWidget {
+
+
   @override
+
   State<rewards> createState() => _rewardsState();
 }
 class _rewardsState extends State<rewards> {
@@ -12,6 +16,11 @@ class _rewardsState extends State<rewards> {
   String Description = "";
   LocaleType lang = LocaleType.ar;
   DateTime selectedate = DateTime.now();
+  late Box mybox;
+  void initState(){
+    super.initState();
+    mybox=Hive.box("mycom");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,46 +81,15 @@ class _rewardsState extends State<rewards> {
                     fontWeight: FontWeight.bold),
                 )),
             const SizedBox(height: 10,),
-            Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-              border: Border.all(width: 2,color: Colorrs.Six,),
-               borderRadius: BorderRadius.all(Radius.circular(20))
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                Text("التاريخ المحدد", style: TextStyle(color: Colorrs.Nine,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold),),
-              const SizedBox(height: 10,),
-                  Text(
-                   "الشهر المحدد",
-                    style: TextStyle(fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colorrs.Ten),
-                    textAlign: TextAlign.center,),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-              Text(
-                "${selectedate.month}",
-                style: TextStyle(fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colorrs.Nine),
-                textAlign: TextAlign.center,),
-                  Text(
-                    "العام المحدد",
-                    style: TextStyle(fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colorrs.Ten),
-                    textAlign: TextAlign.center,),
-                  Text(
-                    "${selectedate.year}",
-                    style: TextStyle(fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colorrs.Nine),
-                    textAlign: TextAlign.center,),
-                ],
-              ),
+              children: [
+
+            const SizedBox(height: 5,),
+
+                datestyle(Datename: "8", Monthname: "${selectedate.month}",Yearname: "${selectedate.year}",)
+              ],
             )
 
           ],

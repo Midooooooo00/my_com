@@ -1,6 +1,10 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:my_com/Screens/SignInScreen.dart';
+import 'package:path_provider/path_provider.dart';
 import 'Screens/HomePage.dart';
+import 'package:hive/hive.dart';
 
 class My_Com extends StatelessWidget {
   const My_Com({Key? key}) : super(key: key);
@@ -17,6 +21,10 @@ class My_Com extends StatelessWidget {
     );
   }
 }
-main(){
+main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  Directory dir = await getApplicationDocumentsDirectory();
+  await Hive.initFlutter(dir.path);
+  Hive.openBox("mycom");
   runApp(My_Com());
 }
