@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:hive/hive.dart';
+import 'package:my_com/Screens/SplashScreen.dart';
 import 'package:my_com/Widget/datestyle.dart';
 import '../Basic/Colorrs.dart';
+
 
 class rewards extends StatefulWidget {
 
@@ -88,7 +90,8 @@ class _rewardsState extends State<rewards> {
 
             const SizedBox(height: 5,),
 
-                datestyle(Datename: "8", Monthname: "${selectedate.month}",Yearname: "${selectedate.year}",)
+                datestyle(Datename: "8", Monthname: "${selectedate.month}",Yearname: "${selectedate.year}",),
+
               ],
             )
 

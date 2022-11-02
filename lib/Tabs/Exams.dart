@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../Basic/Colorrs.dart';
+import '../Widget/MyCustomWidget.dart';
 
 class exam extends StatelessWidget {
   @override
@@ -28,6 +29,7 @@ class exam extends StatelessWidget {
               bottomRight:
                   Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
             )),
-        child: const Text("Exam"));
+
+    );
   }
 }
