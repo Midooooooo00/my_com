@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "810182055174",
+    "project_id": "my-comm-94b58",
+    "storage_bucket": "my-comm-94b58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:810182055174:android:af342c884b783496937a87",
+        "android_client_info": {
+          "package_name": "com.commbenha.my_com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "810182055174-14hh692neu7f23nh4rt2er9pd7vel32k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA242KMUnUIlmdmGY-d0KtBnxXMBF3XmyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "810182055174-14hh692neu7f23nh4rt2er9pd7vel32k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
