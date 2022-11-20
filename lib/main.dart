@@ -8,6 +8,7 @@ import 'Screens/HomePage.dart';
 import 'package:hive/hive.dart';
 
 class My_Com extends StatelessWidget {
+  //main
   const My_Com({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
