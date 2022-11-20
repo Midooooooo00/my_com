@@ -45,6 +45,12 @@ class _SignInScreenState extends State<SignInScreen> {
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(20),
         decoration: BoxDecoration(
+          gradient: const LinearGradient(
+          colors: [Color(0xff2095f3), Color(0xff064170)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        )
+      ,
             boxShadow: [
               BoxShadow(
                   blurRadius: 25.0,
