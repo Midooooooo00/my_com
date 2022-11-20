@@ -13,3 +13,10 @@ class Colorrs {
   static Color Nine = const Color(0xFFCAF0F8);
   static Color Ten = const Color(0xFF000814);
   }
+
+  // LinearGradient(
+  //         colors: [Color(0xff2095f3), Color(0xff064170)],
+  //         begin: Alignment.topLeft,
+  //         end: Alignment.bottomRight,
+  //       )
+      
