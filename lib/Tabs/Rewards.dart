@@ -67,35 +67,37 @@ class _rewardsState extends State<rewards> {
                   .size
                   .width, 100.0),
             )),
-        child: Column(
-          children: [
-            InkWell(
-                onTap: () {
-                  showclender();
-                },
-                onDoubleTap: () {
-                  selectedate = DateTime.now();
-                  setState(() {});
-                },
-                child: Text(
-                  "اختر شهر المكافأة", style: TextStyle(color: Colorrs.First,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
-                )),
-            const SizedBox(height: 10,),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-              children: [
-
-            const SizedBox(height: 5,),
-
-                datestyle(Datename: "8", Monthname: "${selectedate.month}",Yearname: "${selectedate.year}",),
-
-              ],
-            )
-
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              InkWell(
+                  onTap: () {
+                    showclender();
+                  },
+                  onDoubleTap: () {
+                    selectedate = DateTime.now();
+                    setState(() {});
+                  },
+                  child: Text(
+                    "اختر شهر المكافأة", style: TextStyle(color: Colorrs.First,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                  )),
+              const SizedBox(height: 10,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        
+                children: [
+        
+              const SizedBox(height: 5,),
+        
+                  datestyle(Datename: "8", Monthname: "${selectedate.month}",Yearname: "${selectedate.year}",),
+        
+                ],
+              )
+        
+            ],
+          ),
         ));
   }
 

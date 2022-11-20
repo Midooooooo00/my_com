@@ -62,91 +62,93 @@ class _SignInScreenState extends State<SignInScreen> {
               bottomRight:
                   Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
             )),
-        child: Form(
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Column(
-              children: [
-                Text(
-                  "Sign In",
-                  style: TextStyle(
-                      color: Colorrs.Nine,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                textfieldcustom(
-                  labeltext: "Enter Your Email",
-                  security: false,
-                  icontag: const Icon(Icons.keyboard_alt_outlined),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                textfieldcustom(
-                  labeltext: "Password",
-                  security: showpassword == false ? true : false,
-                  icontag: const Icon(Icons.password),
-                ),
-                const SizedBox(
-                  height: 1,
-                ),
-                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                  Checkbox(
-                    value: showpassword,
-                    onChanged: (bool? value) {
-                      setState(() {
-                        showpassword = value!;
-                      });
-                    },
+        child: SingleChildScrollView(
+          child: Form(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom:5.0,top: 0,right: 12,left: 12),
+              child: Column(
+                children: [
+                  Text(
+                    "Sign In",
+                    style: TextStyle(
+                        color: Colorrs.Nine,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
                   ),
-                  const Text(
-                    "Show My Password",
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  const SizedBox(
+                    height: 15,
                   ),
-                ]),
-
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, "HomePage");
-                  },
-                  child: const Text("Sign In"),
-                  style: ElevatedButton.styleFrom(
-                      foregroundColor: Colorrs.Nine,
-                      backgroundColor: Colorrs.Fourth,
-                      shape: const StadiumBorder(),
-                      shadowColor: Colorrs.First,
-                      minimumSize: const Size.fromHeight(50)),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                Text(
-                  'Programming By',
-                  style: TextStyle(
-                    color: Colorrs.Nine,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
+                  textfieldcustom(
+                    labeltext: "Enter Your Email",
+                    security: false,
+                    icontag: const Icon(Icons.keyboard_alt_outlined),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colorrs.Eight,
-                        borderRadius: BorderRadius.circular(30)
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  textfieldcustom(
+                    labeltext: "Password",
+                    security: showpassword == false ? true : false,
+                    icontag: const Icon(Icons.password),
+                  ),
+                  const SizedBox(
+                    height: 1,
+                  ),
+                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                    Checkbox(
+                      value: showpassword,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          showpassword = value!;
+                        });
+                      },
                     ),
-                    width: MediaQuery.of(context).size.width*0.4,
-                    height: MediaQuery.of(context).size.height*0.2,
-                    child: Image.asset("assets/photo/dev.png",fit: BoxFit.fill,),
-
+                    const Text(
+                      "Show My Password",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ]),
+        
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "HomePage");
+                    },
+                    child: const Text("Sign In"),
+                    style: ElevatedButton.styleFrom(
+                        foregroundColor: Colorrs.Nine,
+                        backgroundColor: Colorrs.Fourth,
+                        shape: const StadiumBorder(),
+                        shadowColor: Colorrs.First,
+                        minimumSize: const Size.fromHeight(50)),
                   ),
-                )
-              ],
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Text(
+                    'Programming By',
+                    style: TextStyle(
+                      color: Colorrs.Nine,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 17,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colorrs.Eight,
+                          borderRadius: BorderRadius.circular(30)
+                      ),
+                      width: MediaQuery.of(context).size.width*0.4-5,
+                      height: MediaQuery.of(context).size.height*0.2-5,
+                      child: Image.asset("assets/photo/dev.png",fit: BoxFit.fill,),
+        
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
