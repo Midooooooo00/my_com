@@ -8,6 +8,7 @@ class  textfieldcustom extends StatelessWidget  {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+        
         obscureText:security ,
         decoration: InputDecoration(
           suffixIcon:icontag,
@@ -31,4 +32,4 @@ class  textfieldcustom extends StatelessWidget  {
         )
     );
   }
-}
+ }

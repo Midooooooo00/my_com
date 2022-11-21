@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:my_com/Basic/Colorrs.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
 
-class SignInScreen extends StatefulWidget {
-  static var RoutName = "SignInScreen";
+class Registration extends StatefulWidget {
+  static var RoutName = "Registration";
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<Registration> createState() => _SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInScreenState extends State<Registration> {
   bool showpassword = false;
+  var formkey =GlobalKey <FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +22,8 @@ class _SignInScreenState extends State<SignInScreen> {
         toolbarHeight: 100,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-          bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
-        )),
+              bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
+            )),
         backgroundColor: Colorrs.Fifth,
         elevation: 0,
         centerTitle: true,
@@ -45,12 +46,12 @@ class _SignInScreenState extends State<SignInScreen> {
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-          colors: [Color(0xff2095f3), Color(0xff064170)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        )
-      ,
+            gradient: const LinearGradient(
+              colors: [Color(0xff2095f3), Color(0xff064170)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            )
+            ,
             boxShadow: [
               BoxShadow(
                   blurRadius: 25.0,
@@ -60,32 +61,42 @@ class _SignInScreenState extends State<SignInScreen> {
             color: Colorrs.Third,
             borderRadius: BorderRadius.only(
               topLeft:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+              Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
               topRight:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+              Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
               bottomLeft:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+              Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
               bottomRight:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+              Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
             )),
         child: SingleChildScrollView(
           child: Form(
+            key:formkey,
             child: Padding(
               padding: const EdgeInsets.only(bottom:5.0,top: 0,right: 12,left: 12),
               child: Column(
                 children: [
                   Text(
-                    "Sign In",
+                    "Registration",
                     style: TextStyle(
                         color: Colorrs.Nine,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                   textfieldcustom(
-                    labeltext: "Enter Your ID",
+
+                    labeltext: "Code ID",
+                    security: false,
+                    icontag: const Icon(Icons.keyboard_alt_outlined),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  textfieldcustom(
+                    labeltext: "Full Name",
                     security: false,
                     icontag: const Icon(Icons.keyboard_alt_outlined),
                   ),
@@ -95,7 +106,15 @@ class _SignInScreenState extends State<SignInScreen> {
                   textfieldcustom(
                     labeltext: "Password",
                     security: showpassword == false ? true : false,
-                    icontag: const Icon(Icons.password),
+                    icontag: const Icon(Icons.key),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  textfieldcustom(
+                    labeltext: " Re Enter Password",
+                    security: showpassword == false ? true : false,
+                    icontag: const Icon(Icons.key),
                   ),
                   const SizedBox(
                     height: 1,
@@ -110,16 +129,16 @@ class _SignInScreenState extends State<SignInScreen> {
                       },
                     ),
                     const Text(
-                      "Show My Password",
+                      "Show Enter Password",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ]),
-        
+
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, "HomePage");
+                      createaccount();
                     },
-                    child: const Text("Sign In"),
+                    child: const Text("Registration"),
                     style: ElevatedButton.styleFrom(
                         foregroundColor: Colorrs.Nine,
                         backgroundColor: Colorrs.Fourth,
@@ -130,29 +149,8 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SizedBox(
                     height: 15,
                   ),
-                  Text(
-                    'Programming By',
-                    style: TextStyle(
-                      color: Colorrs.Nine,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 17,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colorrs.Eight,
-                          borderRadius: BorderRadius.circular(30)
-                      ),
-                      width: MediaQuery.of(context).size.width*0.4-5,
-                      height: MediaQuery.of(context).size.height*0.2-5,
-                      child: Image.asset("assets/photo/dev.png",fit: BoxFit.fill,),
-        
-                    ),
-                  )
+
+
                 ],
               ),
             ),
@@ -160,5 +158,11 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  void createaccount() {
+    if (formkey.currentState?.validate()==false){
+      return;
+    }
   }
 }
