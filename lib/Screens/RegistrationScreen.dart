@@ -12,7 +12,7 @@ class Registration extends StatefulWidget {
 
 class _SignInScreenState extends State<Registration> {
   bool showpassword = false;
-  var formkey =GlobalKey <FormState>();
+  var formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +22,8 @@ class _SignInScreenState extends State<Registration> {
         toolbarHeight: 100,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-              bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
-            )),
+          bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
+        )),
         backgroundColor: Colorrs.Fifth,
         elevation: 0,
         centerTitle: true,
@@ -50,8 +50,7 @@ class _SignInScreenState extends State<Registration> {
               colors: [Color(0xff2095f3), Color(0xff064170)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-            )
-            ,
+            ),
             boxShadow: [
               BoxShadow(
                   blurRadius: 25.0,
@@ -61,19 +60,20 @@ class _SignInScreenState extends State<Registration> {
             color: Colorrs.Third,
             borderRadius: BorderRadius.only(
               topLeft:
-              Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
               topRight:
-              Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
               bottomLeft:
-              Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
               bottomRight:
-              Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
             )),
         child: SingleChildScrollView(
           child: Form(
-            key:formkey,
+            key: formkey,
             child: Padding(
-              padding: const EdgeInsets.only(bottom:5.0,top: 0,right: 12,left: 12),
+              padding: const EdgeInsets.only(
+                  bottom: 5.0, top: 0, right: 12, left: 12),
               child: Column(
                 children: [
                   Text(
@@ -87,7 +87,7 @@ class _SignInScreenState extends State<Registration> {
                     height: 20,
                   ),
                   textfieldcustom(
-
+                    errorname: "Code ID",
                     labeltext: "Code ID",
                     security: false,
                     icontag: const Icon(Icons.keyboard_alt_outlined),
@@ -96,6 +96,7 @@ class _SignInScreenState extends State<Registration> {
                     height: 20,
                   ),
                   textfieldcustom(
+                    errorname: "Full Name",
                     labeltext: "Full Name",
                     security: false,
                     icontag: const Icon(Icons.keyboard_alt_outlined),
@@ -104,6 +105,7 @@ class _SignInScreenState extends State<Registration> {
                     height: 20,
                   ),
                   textfieldcustom(
+                    errorname: "Password",
                     labeltext: "Password",
                     security: showpassword == false ? true : false,
                     icontag: const Icon(Icons.key),
@@ -112,6 +114,7 @@ class _SignInScreenState extends State<Registration> {
                     height: 20,
                   ),
                   textfieldcustom(
+                    errorname: " Re Enter Password",
                     labeltext: " Re Enter Password",
                     security: showpassword == false ? true : false,
                     icontag: const Icon(Icons.key),
@@ -133,7 +136,6 @@ class _SignInScreenState extends State<Registration> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ]),
-
                   ElevatedButton(
                     onPressed: () {
                       createaccount();
@@ -149,8 +151,6 @@ class _SignInScreenState extends State<Registration> {
                   const SizedBox(
                     height: 15,
                   ),
-
-
                 ],
               ),
             ),
@@ -161,7 +161,7 @@ class _SignInScreenState extends State<Registration> {
   }
 
   void createaccount() {
-    if (formkey.currentState?.validate()==false){
+    if (formkey.currentState?.validate() == false) {
       return;
     }
   }

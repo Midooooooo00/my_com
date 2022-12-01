@@ -12,6 +12,7 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen> {
   bool showpassword = false;
+  var formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,12 +46,11 @@ class _SignInScreenState extends State<SignInScreen> {
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          gradient: const LinearGradient(
-          colors: [Color(0xff2095f3), Color(0xff064170)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        )
-      ,
+            gradient: const LinearGradient(
+              colors: [Color(0xff2095f3), Color(0xff064170)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
             boxShadow: [
               BoxShadow(
                   blurRadius: 25.0,
@@ -71,7 +71,8 @@ class _SignInScreenState extends State<SignInScreen> {
         child: SingleChildScrollView(
           child: Form(
             child: Padding(
-              padding: const EdgeInsets.only(bottom:5.0,top: 0,right: 12,left: 12),
+              padding: const EdgeInsets.only(
+                  bottom: 5.0, top: 0, right: 12, left: 12),
               child: Column(
                 children: [
                   Text(
@@ -85,7 +86,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: 15,
                   ),
                   textfieldcustom(
-                    labeltext: "Enter Your ID",
+                    errorname: "Your ID",
+                    labeltext: "Your ID",
                     security: false,
                     icontag: const Icon(Icons.keyboard_alt_outlined),
                   ),
@@ -93,6 +95,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: 20,
                   ),
                   textfieldcustom(
+                    errorname: "Password",
                     labeltext: "Password",
                     security: showpassword == false ? true : false,
                     icontag: const Icon(Icons.password),
@@ -114,7 +117,6 @@ class _SignInScreenState extends State<SignInScreen> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ]),
-        
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pushNamed(context, "HomePage");
@@ -144,13 +146,14 @@ class _SignInScreenState extends State<SignInScreen> {
                   Center(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colorrs.Eight,
-                          borderRadius: BorderRadius.circular(30)
+                          color: Colorrs.Eight,
+                          borderRadius: BorderRadius.circular(30)),
+                      width: MediaQuery.of(context).size.width * 0.4 - 5,
+                      height: MediaQuery.of(context).size.height * 0.2 - 5,
+                      child: Image.asset(
+                        "assets/photo/dev.png",
+                        fit: BoxFit.fill,
                       ),
-                      width: MediaQuery.of(context).size.width*0.4-5,
-                      height: MediaQuery.of(context).size.height*0.2-5,
-                      child: Image.asset("assets/photo/dev.png",fit: BoxFit.fill,),
-        
                     ),
                   )
                 ],
@@ -160,5 +163,11 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  void createaccount() {
+    if (formkey.currentState?.validate() == false) {
+      return;
+    }
   }
 }
