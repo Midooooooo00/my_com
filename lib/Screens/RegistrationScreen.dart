@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_com/Basic/Colorrs.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 class Registration extends StatefulWidget {
   static var RoutName = "Registration";
@@ -12,6 +13,14 @@ class Registration extends StatefulWidget {
 
 class _SignInScreenState extends State<Registration> {
   bool showpassword = false;
+  final List<String> items = [
+    'Super Admin',
+    'Admin',
+    'Head User',
+    'User'
+  ];
+  String? selectedValue;
+
   var formkey = GlobalKey<FormState>();
 
   @override
@@ -113,14 +122,89 @@ class _SignInScreenState extends State<Registration> {
                   const SizedBox(
                     height: 20,
                   ),
-                  textfieldcustom(
-                    errorname: " Re Enter Password",
-                    labeltext: " Re Enter Password",
-                    security: showpassword == false ? true : false,
-                    icontag: const Icon(Icons.key),
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Icon(
+                            Icons.list,
+                            size: 16,
+                            color: Colors.yellow,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'Select User Type',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color:Color(0xFFCAF0F8),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: items
+                          .map((item) => DropdownMenuItem<String>(
+                        value: item,
+                        child: Text(
+                          item,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color:Color(0xFFCAF0F8),
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ))
+                          .toList(),
+                      value: selectedValue,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedValue = value as String;
+                        });
+                      },
+                      icon: const Icon(
+                        Icons.arrow_downward_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: Color(0xFFCAF0F8),
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: MediaQuery.of(context).size.width*0.8,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color:Color(0xFF0077B6),
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      itemPadding: const EdgeInsets.only(left: 14, right: 14),
+                      dropdownMaxHeight: 200,
+                      dropdownWidth: 200,
+                      dropdownPadding: null,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Color(0xFF0077B6),
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
+                      offset: const Offset(-20, 0),
+                    ),
                   ),
+
                   const SizedBox(
-                    height: 1,
+                    height: 15,
                   ),
                   Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                     Checkbox(
@@ -136,11 +220,15 @@ class _SignInScreenState extends State<Registration> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ]),
+                  const SizedBox(
+                    height: 15,
+                  ),
                   ElevatedButton(
                     onPressed: () {
                       createaccount();
                     },
-                    child: const Text("Registration"),
+                    child: const Text("Registration",
+                      style: TextStyle(color:Color(0xFFCAF0F8),fontSize: 20),),
                     style: ElevatedButton.styleFrom(
                         foregroundColor: Colorrs.Nine,
                         backgroundColor: Colorrs.Fourth,
