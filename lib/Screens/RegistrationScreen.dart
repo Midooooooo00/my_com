@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:my_com/Basic/Colorrs.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
 
-class SignInScreen extends StatefulWidget {
-  static var RoutName = "SignInScreen";
+class Registration extends StatefulWidget {
+  static var RoutName = "Registration";
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<Registration> createState() => _SignInScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _SignInScreenState extends State<Registration> {
   bool showpassword = false;
   var formkey = GlobalKey<FormState>();
 
@@ -70,24 +70,34 @@ class _SignInScreenState extends State<SignInScreen> {
             )),
         child: SingleChildScrollView(
           child: Form(
+            key: formkey,
             child: Padding(
               padding: const EdgeInsets.only(
                   bottom: 5.0, top: 0, right: 12, left: 12),
               child: Column(
                 children: [
                   Text(
-                    "Sign In",
+                    "Registration",
                     style: TextStyle(
                         color: Colorrs.Nine,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 20,
                   ),
                   textfieldcustom(
-                    errorname: "Your ID",
-                    labeltext: "Your ID",
+                    errorname: "Code ID",
+                    labeltext: "Code ID",
+                    security: false,
+                    icontag: const Icon(Icons.keyboard_alt_outlined),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  textfieldcustom(
+                    errorname: "Full Name",
+                    labeltext: "Full Name",
                     security: false,
                     icontag: const Icon(Icons.keyboard_alt_outlined),
                   ),
@@ -98,7 +108,16 @@ class _SignInScreenState extends State<SignInScreen> {
                     errorname: "Password",
                     labeltext: "Password",
                     security: showpassword == false ? true : false,
-                    icontag: const Icon(Icons.password),
+                    icontag: const Icon(Icons.key),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  textfieldcustom(
+                    errorname: " Re Enter Password",
+                    labeltext: " Re Enter Password",
+                    security: showpassword == false ? true : false,
+                    icontag: const Icon(Icons.key),
                   ),
                   const SizedBox(
                     height: 1,
@@ -113,15 +132,15 @@ class _SignInScreenState extends State<SignInScreen> {
                       },
                     ),
                     const Text(
-                      "Show My Password",
+                      "Show Enter Password",
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ]),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, "HomePage");
+                      createaccount();
                     },
-                    child: const Text("Sign In"),
+                    child: const Text("Registration"),
                     style: ElevatedButton.styleFrom(
                         foregroundColor: Colorrs.Nine,
                         backgroundColor: Colorrs.Fourth,
@@ -132,30 +151,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   const SizedBox(
                     height: 15,
                   ),
-                  Text(
-                    'Programming By',
-                    style: TextStyle(
-                      color: Colorrs.Nine,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 17,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colorrs.Eight,
-                          borderRadius: BorderRadius.circular(30)),
-                      width: MediaQuery.of(context).size.width * 0.4 - 5,
-                      height: MediaQuery.of(context).size.height * 0.2 - 5,
-                      child: Image.asset(
-                        "assets/photo/dev.png",
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),
