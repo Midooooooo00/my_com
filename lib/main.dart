@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:my_com/Screens/MenuScreen.dart';
 import 'package:my_com/Screens/RegistrationScreen.dart';
 import 'package:my_com/Screens/SignInScreen.dart';
 import 'package:my_com/Screens/SplashScreen.dart';
@@ -16,12 +17,14 @@ class My_Com extends StatelessWidget {
     return MaterialApp(
 
         debugShowCheckedModeBanner: false,
-        initialRoute: "Registration",
+        initialRoute: "MenuScreen",
         routes: {
           "SignInScreen": (_) => SignInScreen(),
           "HomePage": (_) => HomePage(),
           "MyCustomWidget": (_) => MyCustomWidget(),
           "Registration": (_) => Registration(),
+          "MenuScreen": (_) => MenuScreen(),
+
         }
     );
   }
