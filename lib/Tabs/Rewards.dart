@@ -27,16 +27,10 @@ class _rewardsState extends State<rewards> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: MediaQuery
-            .of(context)
-            .size
-            .height * 0.95,
-        width: MediaQuery
-            .of(context)
-            .size
-            .width * 0.95,
-        padding: EdgeInsets.all(20),
-        margin: EdgeInsets.all(20),
+        height: double.infinity,
+        width:double.infinity,
+        padding: const EdgeInsets.all(20),
+       // margin: EdgeInsets.all(20),
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -45,28 +39,12 @@ class _rewardsState extends State<rewards> {
                   blurStyle: BlurStyle.outer),
             ],
             color: Colorrs.Third,
-            borderRadius: BorderRadius.only(
-              topLeft:
-              Radius.elliptical(MediaQuery
-                  .of(context)
-                  .size
-                  .width, 100.0),
-              topRight:
-              Radius.elliptical(MediaQuery
-                  .of(context)
-                  .size
-                  .width, 100.0),
-              bottomLeft:
-              Radius.elliptical(MediaQuery
-                  .of(context)
-                  .size
-                  .width, 100.0),
-              bottomRight:
-              Radius.elliptical(MediaQuery
-                  .of(context)
-                  .size
-                  .width, 100.0),
-            )),
+          gradient: const LinearGradient(
+          colors: [Color(0xff2095f3), Color(0xff064170)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        )
+            ),
         child: SingleChildScrollView(
           child: Column(
             children: [

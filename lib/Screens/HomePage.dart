@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colorrs.Nine,
+      backgroundColor: Colorrs.Third,
       appBar: AppBar(
         toolbarHeight: 100,
         shape: RoundedRectangleBorder(
