@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_com/Tabs/Exams.dart';
 import 'package:my_com/Tabs/Rewards.dart';
-
 import '../Basic/Colorrs.dart';
 
 class HomePage extends StatefulWidget {
