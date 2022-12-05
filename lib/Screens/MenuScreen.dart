@@ -6,13 +6,13 @@ import 'package:vertical_card_pager/vertical_card_pager.dart';
 class MenuScreen extends StatelessWidget {
   static var RoutName = "MenuScreen";
   final List<String> titles =
-  ["المكافات", "الامتحانات ", "طلب تصريح", "طلب مأمورية", "تسجيل يوزر", "معلومات", ];
+  ["الامتحانات والمكافات", "تصريح / مأمورية", "اجازة", "تسجيل يوزر", "معلومات" ];
   final List<Widget> Pages = [
-    containerstyly(Colors1: Colorrs.Fifth, Colors2: Colorrs.Fourth,  imagename: ""),
-    containerstyly(Colors1: Colorrs.Eight, Colors2: Colorrs.Seven, imagename: ""),
-    containerstyly(Colors1: Colorrs.Third, Colors2: Colorrs.Second, imagename: ""),
-    containerstyly(Colors1: Colorrs.Nine, Colors2: Colorrs.Eight,  imagename: ""),
-    containerstyly(Colors1: Colorrs.Fourth, Colors2: Colorrs.Third,  imagename: ""),
+    containerstyly(Colors1: Colorrs.Fifth, Colors2: Colorrs.Fourth,  imagename: "assets/photo/reward.jpeg"),
+    containerstyly(Colors1: Colorrs.Nine, Colors2: Colorrs.Eight, imagename: "assets/photo/dev.png"),
+    containerstyly(Colors1: Colorrs.Nine, Colors2: Colorrs.Eight,  imagename: "assets/photo/dev.png"),
+    containerstyly(Colors1: Colorrs.Fourth, Colors2: Colorrs.Third,  imagename: "assets/photo/11.jpg"),
+    containerstyly(Colors1: Colorrs.Six, Colors2: Colorrs.Fifth,  imagename: "assets/photo/notes.png")
   ];
 
   @override
@@ -25,21 +25,19 @@ class MenuScreen extends StatelessWidget {
          children: <Widget>[
             Expanded(
               child: Container(
-                child: InkWell(
-                  onTap: (){
+                alignment: Alignment.bottomCenter,
+                child: VerticalCardPager(
+                    titles: titles,  // required
+                    images: Pages,  // required
+                     textStyle:TextStyle(color: Colorrs.Ten, fontWeight: FontWeight.bold), // optional
+                    onPageChanged: (page) {
+                     // optional
+                    },
+                    onSelectedItem: (index) { // optional
+                    },
+                    initialPage: 0, // optional
+                    align : ALIGN.CENTER, // optional
 
-                  },
-                  child: VerticalCardPager(
-                      titles: titles,  // required
-                      images: Pages,  // required
-                      textStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold), // optional
-                      onPageChanged: (page) { // optional
-                      },
-                      onSelectedItem: (index) { // optional
-                      },
-                      initialPage: 0, // optional
-                      align : ALIGN.CENTER // optional
-                  ),
                 ),
               ),
             ),

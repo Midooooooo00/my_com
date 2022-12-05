@@ -5,7 +5,8 @@ import '../Basic/Colorrs.dart';
 class exam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return
+      Container(
       height: MediaQuery.of(context).size.height * 0.95,
       width: MediaQuery.of(context).size.width * 0.95,
       padding: EdgeInsets.all(20),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_com/Basic/Colorrs.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
@@ -20,16 +19,15 @@ class _SignInScreenState extends State<SignInScreen> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         // leading: ,
-  
+
         toolbarHeight: 100,
-        shape: 
-        RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-         // bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
-        )),
+                // bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
+                )),
         backgroundColor: Colorrs.Fifth,
-       // shadowColor: Colors.red,
-       // foregroundColor: Colors.transparent,
+        // shadowColor: Colors.red,
+        // foregroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -46,30 +44,26 @@ class _SignInScreenState extends State<SignInScreen> {
         ],
       ),
       body: Container(
-
         height: double.infinity,
-          width: double.infinity,
-        
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
             colors: [Color(0xff2095f3), Color(0xff064170)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-          )
-        ,
-             ),
+          ),
+        ),
         child: Container(
           height: MediaQuery.of(context).size.height * 0.95,
           width: MediaQuery.of(context).size.width * 0.95,
           padding: const EdgeInsets.all(20),
           margin: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
-            colors: [Color(0xff2095f3), Color(0xff064170)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          )
-        ,
+              gradient: const LinearGradient(
+                colors: [Color(0xff2095f3), Color(0xff064170)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
               boxShadow: [
                 BoxShadow(
                     blurRadius: 25.0,
@@ -90,96 +84,9 @@ class _SignInScreenState extends State<SignInScreen> {
           child: SingleChildScrollView(
             child: Form(
               child: Padding(
-                padding: const EdgeInsets.only(bottom:5.0,top: 0,right: 12,left: 12),
-                child: Column(
-                  children: [
-                    Text(
-                      "Sign In",
-                      style: TextStyle(
-                          color: Colorrs.Nine,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    textfieldcustom(
-                      labeltext: "Enter Your Email",
-                      security: false,
-                      icontag: const Icon(Icons.keyboard_alt_outlined),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    textfieldcustom(
-                      labeltext: "Password",
-                      security: showpassword == false ? true : false,
-                      icontag: const Icon(Icons.password), errorname: '',
-                    ),
-                    const SizedBox(
-                      height: 1,
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                      Checkbox(
-                        value: showpassword,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            showpassword = value!;
-                          });
-                        },
-                      ),
-                      const Text(
-                        "Show My Password",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ]),
-          
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, "HomePage");
-                      },
-                      child: const Text("Sign In"),
-                      style: ElevatedButton.styleFrom(
-                          foregroundColor: Colorrs.Nine,
-                          backgroundColor: Colorrs.Fourth,
-                          shape: const StadiumBorder(),
-                          shadowColor: Colorrs.First,
-                          minimumSize: const Size.fromHeight(50)),
-=======
-        height: MediaQuery.of(context).size.height * 0.95,
-        width: MediaQuery.of(context).size.width * 0.95,
-        padding: const EdgeInsets.all(20),
-        margin: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [Color(0xff2095f3), Color(0xff064170)],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            boxShadow: [
-              BoxShadow(
-                  blurRadius: 25.0,
-                  color: Colorrs.First,
-                  blurStyle: BlurStyle.outer),
-            ],
-            color: Colorrs.Third,
-            borderRadius: BorderRadius.only(
-              topLeft:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
-              topRight:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
-              bottomLeft:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
-              bottomRight:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
-            )),
-        child: SingleChildScrollView(
-          child: Form(
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  bottom: 5.0, top: 0, right: 12, left: 12),
-              child: Column(
-                children: [
+                padding: const EdgeInsets.only(
+                    bottom: 5.0, top: 0, right: 12, left: 12),
+                child: Column(children: [
                   Text(
                     "Sign In",
                     style: TextStyle(
@@ -191,8 +98,8 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: 15,
                   ),
                   textfieldcustom(
-                    errorname: "Your ID",
-                    labeltext: "Your ID",
+                    errorname: "check Your ID",
+                    labeltext: "Enter Your ID",
                     security: false,
                     icontag: const Icon(Icons.keyboard_alt_outlined),
                   ),
@@ -200,7 +107,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     height: 20,
                   ),
                   textfieldcustom(
-                    errorname: "Password",
+                    errorname: "check your Password",
                     labeltext: "Password",
                     security: showpassword == false ? true : false,
                     icontag: const Icon(Icons.password),
@@ -234,61 +141,165 @@ class _SignInScreenState extends State<SignInScreen> {
                         shadowColor: Colorrs.First,
                         minimumSize: const Size.fromHeight(50)),
                   ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    'Programming By',
-                    style: TextStyle(
-                      color: Colorrs.Nine,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 17,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Center(
-                    child: Container(
+                  Container(
+                      height: MediaQuery.of(context).size.height * 0.95,
+                      width: MediaQuery.of(context).size.width * 0.95,
+                      padding: EdgeInsets.all(20),
+                      margin: EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                          color: Colorrs.Eight,
-                          borderRadius: BorderRadius.circular(30)),
-                      width: MediaQuery.of(context).size.width * 0.4 - 5,
-                      height: MediaQuery.of(context).size.height * 0.2 - 5,
-                      child: Image.asset(
-                        "assets/photo/dev.png",
-                        fit: BoxFit.fill,
-                      ),
->>>>>>> 4cc10c8c0dee2d98d0ce0bd4b14a52ab1980fa30
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      'Programming By',
-                      style: TextStyle(
-                        color: Colorrs.Nine,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 17,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Center(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colorrs.Eight,
-                            borderRadius: BorderRadius.circular(30)
-                        ),
-                        width: MediaQuery.of(context).size.width*0.4-5,
-                        height: MediaQuery.of(context).size.height*0.2-5,
-                        child: Image.asset("assets/photo/dev.png",fit: BoxFit.fill,),
-          
-                      ),
-                    )
-                  ],
-                ),
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 25.0,
+                                color: Colorrs.First,
+                                blurStyle: BlurStyle.outer),
+                          ],
+                          color: Colorrs.Third,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.elliptical(
+                                MediaQuery.of(context).size.width, 100.0),
+                            topRight: Radius.elliptical(
+                                MediaQuery.of(context).size.width, 100.0),
+                            bottomLeft: Radius.elliptical(
+                                MediaQuery.of(context).size.width, 100.0),
+                            bottomRight: Radius.elliptical(
+                                MediaQuery.of(context).size.width, 100.0),
+                          )),
+                      child: SingleChildScrollView(
+                          child: Form(
+                              child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      bottom: 5.0, top: 0, right: 12, left: 12),
+                                  child: Column(children: [
+                                    Text(
+                                      "Sign In",
+                                      style: TextStyle(
+                                          color: Colorrs.Nine,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    const SizedBox(
+                                      height: 15,
+                                    ),
+                                    textfieldcustom(
+                                      errorname: "Your ID",
+                                      labeltext: "Your ID",
+                                      security: false,
+                                      icontag: const Icon(
+                                          Icons.keyboard_alt_outlined),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    textfieldcustom(
+                                      errorname: "Password",
+                                      labeltext: "Password",
+                                      security:
+                                          showpassword == false ? true : false,
+                                      icontag: const Icon(Icons.password),
+                                    ),
+                                    const SizedBox(
+                                      height: 1,
+                                    ),
+                                    Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Checkbox(
+                                            value: showpassword,
+                                            onChanged: (bool? value) {
+                                              setState(() {
+                                                showpassword = value!;
+                                              });
+                                            },
+                                          ),
+                                          const Text(
+                                            "Show My Password",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ]),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, "HomePage");
+                                      },
+                                      child: const Text("Sign In"),
+                                      style: ElevatedButton.styleFrom(
+                                          foregroundColor: Colorrs.Nine,
+                                          backgroundColor: Colorrs.Fourth,
+                                          shape: const StadiumBorder(),
+                                          shadowColor: Colorrs.First,
+                                          minimumSize:
+                                              const Size.fromHeight(50)),
+                                    ),
+                                    const SizedBox(
+                                      height: 15,
+                                    ),
+                                    Text(
+                                      'Programming By',
+                                      style: TextStyle(
+                                        color: Colorrs.Nine,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 17,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Center(
+                                        child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Colorrs.Eight,
+                                          borderRadius:
+                                              BorderRadius.circular(30)),
+                                      width: MediaQuery.of(context).size.width *
+                                              0.4 -
+                                          5,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                                  0.2 -
+                                              5,
+                                      child: Image.asset(
+                                        "assets/photo/dev.png",
+                                        fit: BoxFit.fill,
+                                      ),
+                                    )),
+                                    const SizedBox(
+                                      height: 15,
+                                    ),
+                                    Text(
+                                      'Programming By',
+                                      style: TextStyle(
+                                        color: Colorrs.Nine,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 17,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Center(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: Colorrs.Eight,
+                                            borderRadius:
+                                                BorderRadius.circular(30)),
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                    0.4 -
+                                                5,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                    0.2 -
+                                                5,
+                                        child: Image.asset(
+                                          "assets/photo/dev.png",
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
+                                    )
+                                  ]))))),
+                ]),
               ),
             ),
           ),

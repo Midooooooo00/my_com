@@ -9,11 +9,11 @@ class containerstyly extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-    padding: EdgeInsets.all(5),
-    margin: EdgeInsets.all(5),
+    padding: EdgeInsets.all(20),
+    margin: EdgeInsets.all(20),
     decoration: BoxDecoration(
       image: DecorationImage(
-        image: AssetImage(imagename),fit: BoxFit.fill,
+        image: AssetImage(imagename),fit: BoxFit.cover,
               ),
     boxShadow: [
     BoxShadow(
@@ -24,13 +24,13 @@ class containerstyly extends StatelessWidget {
     color: Colors2,
     borderRadius: BorderRadius.only(
     topLeft:
-    Radius.elliptical(MediaQuery.of(context).size.width, 0.2),
+    Radius.elliptical(MediaQuery.of(context).size.width, 100),
     topRight:
-    Radius.elliptical(MediaQuery.of(context).size.width,0.2),
+    Radius.elliptical(MediaQuery.of(context).size.width,100),
     bottomLeft:
-    Radius.elliptical(MediaQuery.of(context).size.width, 0.2),
+    Radius.elliptical(MediaQuery.of(context).size.width, 100),
     bottomRight:
-    Radius.elliptical(MediaQuery.of(context).size.width, 0.2),
+    Radius.elliptical(MediaQuery.of(context).size.width, 100),
     )),
 
     );
