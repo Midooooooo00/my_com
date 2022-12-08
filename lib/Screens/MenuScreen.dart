@@ -17,11 +17,26 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colorrs.Nine,
+    return
+      Scaffold(
+     backgroundColor: Colorrs.Third,
+      appBar: AppBar(
+        toolbarHeight: 100,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
+            )),
+        backgroundColor: Colorrs.Fifth,
+        elevation: 0,
+        centerTitle: true,
+        title: Image.asset(
+          "assets/photo/black.PNG",
+          alignment: Alignment.centerRight,
+          width: MediaQuery.of(context).size.width * 0.25,
+        ),
+      ),
       body: SafeArea(
         child: Column(
-
          children: <Widget>[
             Expanded(
               child: Container(
@@ -34,6 +49,23 @@ class MenuScreen extends StatelessWidget {
                      // optional
                     },
                     onSelectedItem: (index) { // optional
+                      if(index==0){
+                        Navigator.pushNamed(context, "HomePage");
+                      }
+                      else if(index==1){
+                        Navigator.pushNamed(context, "HomePage");
+
+                      }
+                      else if(index==2){
+                        Navigator.pushNamed(context, "SignInScreen");
+                      }
+                      else if(index==3){
+                        Navigator.pushNamed(context, "Registration");
+                      }
+                      else if(index==4){
+                        Navigator.pushNamed(context, "Registration");
+                      }
+
                     },
                     initialPage: 0, // optional
                     align : ALIGN.CENTER, // optional
