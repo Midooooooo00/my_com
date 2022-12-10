@@ -1,71 +1,99 @@
 import 'package:flutter/material.dart';
 import 'package:my_com/Basic/Colorrs.dart';
 
-class datestyle extends StatelessWidget {
+class datestyle extends StatefulWidget {
   String Monthname;
-
   String Datename;
   String Yearname;
 
-  datestyle(
-      {required this.Datename,
-      required this.Monthname,
-      required this.Yearname});
+  datestyle({
+    required this.Datename,
+    required this.Monthname,
+    required this.Yearname,
+  });
 
+  @override
+  State<datestyle> createState() => _datestyleState();
+}
+
+class _datestyleState extends State<datestyle> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.centerRight,
-      padding: EdgeInsets.all(5),
-      margin: EdgeInsets.all(5),
-      width: 120,
-      height: 150,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            bottomLeft: Radius.circular(45),
-            bottomRight: Radius.circular(20),
-            topRight: Radius.circular(20),
-            topLeft: Radius.circular(20),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 7,
+              offset: const Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Column(children: [
+          Container(
+            decoration: const BoxDecoration(
+                color: Color(0xFF03045E),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(12))),
+            width: double.infinity,
+            child: const Icon(Icons.date_range,
+                size: 20, color: Color(0xFFCAF0F8)),
+            padding: const EdgeInsets.all(12),
           ),
-          color: Colors.white),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            Monthname,
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colorrs.First),
-            textAlign: TextAlign.end,
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Text(
-            Datename,
-            style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                color: Colorrs.Ten),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Text(
-            Yearname,
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                color: Colorrs.First),
-            textAlign: TextAlign.end,
-          ),
-        ],
-      ),
-    );
+          Container(
+              margin: const EdgeInsets.all(2),
+              padding: const EdgeInsets.all(15),
+              decoration: const BoxDecoration(
+                  color: Color(0xFF48CAE4),
+                  borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(12),
+                      bottomLeft: Radius.circular(12))),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    height: 100,
+                    width: 5,
+                    color: Colorrs.Ten,
+                  ),
+                  const SizedBox(
+                    width: 25,
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        widget.Yearname,
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colorrs.First),
+                      ),
+                      const SizedBox(
+                        height: 1,
+                      ),
+                      Text(
+                        widget.Datename,
+                        style: TextStyle(
+                            fontSize: 55,
+                            fontWeight: FontWeight.bold,
+                            color: Colorrs.Ten),
+                      ),
+                      const SizedBox(
+                        height: 1,
+                      ),
+                      Text(
+                        widget.Monthname,
+                        style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                            color: Colorrs.First),
+                      ),
+                    ],
+                  ),
+                ],
+              )),
+        ]));
   }
 }

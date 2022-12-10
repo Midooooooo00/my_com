@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
         toolbarHeight: 100,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-          bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
+          bottom: Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
         )),
         backgroundColor: Colorrs.Fifth,
         elevation: 0,
