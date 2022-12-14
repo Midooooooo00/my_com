@@ -14,7 +14,7 @@ class containerstyly extends StatelessWidget {
     margin: EdgeInsets.all(20),
     decoration: BoxDecoration(
       image: DecorationImage(
-        image: AssetImage(imagename),fit: BoxFit.cover,
+        image: AssetImage(imagename),fit: BoxFit.fill,
               ),
     boxShadow: [
     BoxShadow(

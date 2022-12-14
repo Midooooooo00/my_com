@@ -20,19 +20,19 @@ class MenuScreen extends StatelessWidget {
     containerstyly(
         Colors1: Colorrs.Nine,
         Colors2: Colorrs.Eight,
-        imagename: "assets/photo/dev.png"),
+        imagename: "assets/photo/abc.jpg"),
     containerstyly(
         Colors1: Colorrs.Nine,
         Colors2: Colorrs.Eight,
-        imagename: "assets/photo/dev.png"),
+        imagename: "assets/photo/dfg.jpg"),
     containerstyly(
         Colors1: Colorrs.Fourth,
         Colors2: Colorrs.Third,
-        imagename: "assets/photo/11.jpg"),
+        imagename: "assets/photo/reg.jpg"),
     containerstyly(
         Colors1: Colorrs.Six,
         Colors2: Colorrs.Fifth,
-        imagename: "assets/photo/notes.png")
+        imagename: "assets/photo/info.jpg")
   ];
 
   @override
@@ -49,7 +49,7 @@ class MenuScreen extends StatelessWidget {
                 images: Pages,
                 // required
                 textStyle: const TextStyle(
-                    color: Colors.white70, fontWeight: FontWeight.bold),
+                    color: Colors.transparent, fontWeight: FontWeight.bold),
                 onPageChanged: (page) {},
                 onSelectedItem: (index) {
                   // optional
