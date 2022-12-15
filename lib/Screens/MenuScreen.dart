@@ -6,9 +6,9 @@ import 'package:vertical_card_pager/vertical_card_pager.dart';
 class MenuScreen extends StatelessWidget {
   static var RoutName = "MenuScreen";
   final List<String> titles = [
-    "الامتحانات والمكافات",
-    "تصريح / مأمورية",
-    "اجازة",
+    "تصريح صباحي",
+    "تصريح مسائي",
+    "مأمورية",
     "تسجيل يوزر",
     "معلومات"
   ];
@@ -56,13 +56,13 @@ class MenuScreen extends StatelessWidget {
                   if (index == 0) {
                     Navigator.pushNamed(context, "HomePage");
                   } else if (index == 1) {
-                    Navigator.pushNamed(context, "HomePage");
+                    Navigator.pushNamed(context, "permissionscreen");
                   } else if (index == 2) {
-                    Navigator.pushNamed(context, "SignInScreen");
+                    Navigator.pushNamed(context, "");
                   } else if (index == 3) {
                     Navigator.pushNamed(context, "Registration");
                   } else if (index == 4) {
-                    Navigator.pushNamed(context, "Registration");
+                    Navigator.pushNamed(context, "");
                   }
                 },
                 initialPage: 0,

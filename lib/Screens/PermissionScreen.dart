@@ -1,32 +1,56 @@
-import 'package:flutter/cupertino.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:my_com/Basic/Colorrs.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
-import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:my_com/Widget/visablerow.dart';
 
-class Registration extends StatefulWidget {
-  static var RoutName = "Registration";
+class permissionscreen extends StatefulWidget {
+  static var RoutName = "permissionscreen";
 
   @override
-  State<Registration> createState() => _SignInScreenState();
+  State<permissionscreen> createState() => _permissionscreenState();
 }
 
-class _SignInScreenState extends State<Registration> {
-  bool showpassword = false;
+class _permissionscreenState extends State<permissionscreen> {
   final List<String> items = [
-    'Super Admin',
-    'Admin',
-    'Head User',
-    'User'
+    'تصريح صباحي',
+    'تصريح مسائي',
+    'مأمورية',
+  ];
+  final List<String> itemms = [
+    'التخطيط والتطوير',
+    'المكافات والامتحانات',
+    'شئون العاملين',
+    'الاستحقاقات',
+    'الدراسات العليا',
+    'الميزانية',
+    'المخازن والمشتريات',
+    'الحسابات',
+    'التحصيل الالكتروني',
+    'العلاقات العامة والثقافية',
+    'الصيانة',
+    'الارشيف',
+    'شئون اعضاء هيئة التدريس',
+    'الاضابير',
+    'المخزون السلعي',
+    'السكرتارية',
+    'الخريجين',
+    'رعاية الشباب',
+    'IT',
+    'الادارة الطبية',
+    'الحاسب الالي',
+    'مركز الدراسات والبحوث',
+    'العمال',
   ];
   String? selectedValue;
+  String? seelectedValue;
+  bool isvisable = false;
 
   var formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    return
-      Scaffold(
+    return Scaffold(
       backgroundColor: Colorrs.Nine,
       appBar: AppBar(
         toolbarHeight: 100,
@@ -87,7 +111,7 @@ class _SignInScreenState extends State<Registration> {
               child: Column(
                 children: [
                   Text(
-                    "Registration",
+                    "تصريح / مأمورية",
                     style: TextStyle(
                         color: Colorrs.Nine,
                         fontSize: 18,
@@ -97,28 +121,19 @@ class _SignInScreenState extends State<Registration> {
                     height: 20,
                   ),
                   textfieldcustom(
-                    errorname: "Code ID",
-                    labeltext: "Code ID",
+                    errorname: "كود الموظف",
+                    labeltext: "كود الموظف",
                     security: false,
-                    icontag: const Icon(Icons.keyboard_alt_outlined),
+                    icontag: const Icon(Icons.numbers),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   textfieldcustom(
-                    errorname: "Full Name",
-                    labeltext: "Full Name",
+                    errorname: "اسم الموظف",
+                    labeltext: "اسم الموظف رباعي",
                     security: false,
                     icontag: const Icon(Icons.keyboard_alt_outlined),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  textfieldcustom(
-                    errorname: "Password",
-                    labeltext: "Password",
-                    security: showpassword == false ? true : false,
-                    icontag: const Icon(Icons.key),
                   ),
                   const SizedBox(
                     height: 20,
@@ -139,30 +154,30 @@ class _SignInScreenState extends State<Registration> {
                           ),
                           Expanded(
                             child: Text(
-                              'Select User Type',
+                              'اختر القسم',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
-                                color:Color(0xFFCAF0F8),
+                                color: Color(0xFFCAF0F8),
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
                         ],
                       ),
-                      items: items
+                      items: itemms
                           .map((item) => DropdownMenuItem<String>(
-                        value: item,
-                        child: Text(
-                          item,
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color:Color(0xFFCAF0F8),
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ))
+                                value: item,
+                                child: Text(
+                                  item,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFFCAF0F8),
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ))
                           .toList(),
                       value: selectedValue,
                       onChanged: (value) {
@@ -174,17 +189,17 @@ class _SignInScreenState extends State<Registration> {
                         Icons.arrow_downward_outlined,
                       ),
                       iconSize: 14,
-                      iconEnabledColor: Color(0xFFCAF0F8),
+                      iconEnabledColor: const Color(0xFFCAF0F8),
                       iconDisabledColor: Colors.grey,
                       buttonHeight: 50,
-                      buttonWidth: MediaQuery.of(context).size.width*0.8,
+                      buttonWidth: MediaQuery.of(context).size.width * 0.8,
                       buttonPadding: const EdgeInsets.only(left: 14, right: 14),
                       buttonDecoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
                         border: Border.all(
                           color: Colors.black26,
                         ),
-                        color:Color(0xFF0077B6),
+                        color: const Color(0xFF0077B6),
                       ),
                       buttonElevation: 2,
                       itemHeight: 40,
@@ -194,7 +209,7 @@ class _SignInScreenState extends State<Registration> {
                       dropdownPadding: null,
                       dropdownDecoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
-                        color: Color(0xFF0077B6),
+                        color: const Color(0xFF0077B6),
                       ),
                       dropdownElevation: 8,
                       scrollbarRadius: const Radius.circular(40),
@@ -203,33 +218,110 @@ class _SignInScreenState extends State<Registration> {
                       offset: const Offset(-20, 0),
                     ),
                   ),
-
                   const SizedBox(
                     height: 15,
                   ),
-                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                    Checkbox(
-                      value: showpassword,
-                      onChanged: (bool? value) {
+                  DropdownButtonHideUnderline(
+                    child: DropdownButton2(
+                      isExpanded: true,
+                      hint: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: const [
+                          Icon(
+                            Icons.list,
+                            size: 16,
+                            color: Colors.yellow,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Expanded(
+                            child: Text(
+                              'نوع الطلب',
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFCAF0F8),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+                      items: items
+                          .map((items) => DropdownMenuItem<String>(
+                                value: items,
+                                child: Text(
+                                  items,
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFFCAF0F8),
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ))
+                          .toList(),
+                      value: seelectedValue,
+                      onChanged: (value) {
+                        if(value=="مأمورية"){
+                       setState(() {
+                           visablerow;
+                          seelectedValue = value as String;
+                            });
+                        }else
                         setState(() {
-                          showpassword = value!;
+                          seelectedValue = value as String;
                         });
                       },
+                      icon: const Icon(
+                        Icons.arrow_downward_outlined,
+                      ),
+                      iconSize: 14,
+                      iconEnabledColor: const Color(0xFFCAF0F8),
+                      iconDisabledColor: Colors.grey,
+                      buttonHeight: 50,
+                      buttonWidth: MediaQuery.of(context).size.width * 0.8,
+                      buttonPadding: const EdgeInsets.only(left: 14, right: 14),
+                      buttonDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        border: Border.all(
+                          color: Colors.black26,
+                        ),
+                        color: const Color(0xFF0077B6),
+                      ),
+                      buttonElevation: 2,
+                      itemHeight: 40,
+                      itemPadding: const EdgeInsets.only(left: 14, right: 14),
+                      dropdownMaxHeight: 200,
+                      dropdownWidth: 200,
+                      dropdownPadding: null,
+                      dropdownDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: const Color(0xFF0077B6),
+                      ),
+                      dropdownElevation: 8,
+                      scrollbarRadius: const Radius.circular(40),
+                      scrollbarThickness: 6,
+                      scrollbarAlwaysShow: true,
+                      offset: const Offset(-20, 0),
                     ),
-                    const Text(
-                      "Show Enter Password",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ]),
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+
                   const SizedBox(
                     height: 15,
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      createaccount();
+                      go();
                     },
-                    child: const Text("Registration",
-                      style: TextStyle(color:Color(0xFFCAF0F8),fontSize: 20),),
+                    child: const Text(
+                      "Send",
+                      style: TextStyle(color: Color(0xFFCAF0F8), fontSize: 20),
+                    ),
                     style: ElevatedButton.styleFrom(
                         foregroundColor: Colorrs.Nine,
                         backgroundColor: Colorrs.Fourth,
@@ -249,9 +341,5 @@ class _SignInScreenState extends State<Registration> {
     );
   }
 
-  void createaccount() {
-    if (formkey.currentState?.validate() == false) {
-      return;
-    }
-  }
+  void go() {}
 }
