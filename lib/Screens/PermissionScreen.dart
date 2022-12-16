@@ -1,8 +1,12 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:my_com/Basic/Colorrs.dart';
+import 'package:my_com/Widget/contanertoshow.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
 import 'package:my_com/Widget/visablerow.dart';
+
+import '../Widget/datestyle.dart';
 
 class permissionscreen extends StatefulWidget {
   static var RoutName = "permissionscreen";
@@ -45,7 +49,9 @@ class _permissionscreenState extends State<permissionscreen> {
   String? selectedValue;
   String? seelectedValue;
   bool isvisable = false;
-
+  bool contanershow = false;
+  LocaleType lang = LocaleType.ar;
+  DateTime selectedate = DateTime.now();
   var formkey = GlobalKey<FormState>();
 
   @override
@@ -56,8 +62,11 @@ class _permissionscreenState extends State<permissionscreen> {
         toolbarHeight: 100,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-          bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
-        )),
+              bottom: Radius.elliptical(MediaQuery
+                  .of(context)
+                  .size
+                  .width, 55.0),
+            )),
         backgroundColor: Colorrs.Fifth,
         elevation: 0,
         centerTitle: true,
@@ -75,8 +84,14 @@ class _permissionscreenState extends State<permissionscreen> {
         ],
       ),
       body: Container(
-        height: MediaQuery.of(context).size.height * 0.95,
-        width: MediaQuery.of(context).size.width * 0.95,
+        height: MediaQuery
+            .of(context)
+            .size
+            .height * 0.95,
+        width: MediaQuery
+            .of(context)
+            .size
+            .width * 0.95,
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(20),
         decoration: BoxDecoration(
@@ -94,13 +109,25 @@ class _permissionscreenState extends State<permissionscreen> {
             color: Colorrs.Third,
             borderRadius: BorderRadius.only(
               topLeft:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+              Radius.elliptical(MediaQuery
+                  .of(context)
+                  .size
+                  .width, 100.0),
               topRight:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+              Radius.elliptical(MediaQuery
+                  .of(context)
+                  .size
+                  .width, 100.0),
               bottomLeft:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+              Radius.elliptical(MediaQuery
+                  .of(context)
+                  .size
+                  .width, 100.0),
               bottomRight:
-                  Radius.elliptical(MediaQuery.of(context).size.width, 100.0),
+              Radius.elliptical(MediaQuery
+                  .of(context)
+                  .size
+                  .width, 100.0),
             )),
         child: SingleChildScrollView(
           child: Form(
@@ -118,7 +145,7 @@ class _permissionscreenState extends State<permissionscreen> {
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   textfieldcustom(
                     errorname: "كود الموظف",
@@ -127,7 +154,7 @@ class _permissionscreenState extends State<permissionscreen> {
                     icontag: const Icon(Icons.numbers),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   textfieldcustom(
                     errorname: "اسم الموظف",
@@ -136,7 +163,7 @@ class _permissionscreenState extends State<permissionscreen> {
                     icontag: const Icon(Icons.keyboard_alt_outlined),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   DropdownButtonHideUnderline(
                     child: DropdownButton2(
@@ -166,18 +193,19 @@ class _permissionscreenState extends State<permissionscreen> {
                         ],
                       ),
                       items: itemms
-                          .map((item) => DropdownMenuItem<String>(
-                                value: item,
-                                child: Text(
-                                  item,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFFCAF0F8),
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ))
+                          .map((item) =>
+                          DropdownMenuItem<String>(
+                            value: item,
+                            child: Text(
+                              item,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFCAF0F8),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ))
                           .toList(),
                       value: selectedValue,
                       onChanged: (value) {
@@ -192,7 +220,10 @@ class _permissionscreenState extends State<permissionscreen> {
                       iconEnabledColor: const Color(0xFFCAF0F8),
                       iconDisabledColor: Colors.grey,
                       buttonHeight: 50,
-                      buttonWidth: MediaQuery.of(context).size.width * 0.8,
+                      buttonWidth: MediaQuery
+                          .of(context)
+                          .size
+                          .width * 0.8,
                       buttonPadding: const EdgeInsets.only(left: 14, right: 14),
                       buttonDecoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
@@ -219,7 +250,7 @@ class _permissionscreenState extends State<permissionscreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                   DropdownButtonHideUnderline(
                     child: DropdownButton2(
@@ -249,27 +280,30 @@ class _permissionscreenState extends State<permissionscreen> {
                         ],
                       ),
                       items: items
-                          .map((items) => DropdownMenuItem<String>(
-                                value: items,
-                                child: Text(
-                                  items,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color(0xFFCAF0F8),
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ))
+                          .map((items) =>
+                          DropdownMenuItem<String>(
+                            value: items,
+                            child: Text(
+                              items,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFCAF0F8),
+                              ),
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ))
                           .toList(),
                       value: seelectedValue,
                       onChanged: (value) {
-                        if(value=="مأمورية"){
-                       setState(() {
-                           visablerow;
-                          seelectedValue = value as String;
-                            });
-                        }else
+                        if (value == "مأمورية") {
+                          contanershow = true;
+                          setState(() {
+                            visablerow;
+                            seelectedValue = value as String;
+                          });
+                        } else
+                          contanershow = false;
                         setState(() {
                           seelectedValue = value as String;
                         });
@@ -281,7 +315,10 @@ class _permissionscreenState extends State<permissionscreen> {
                       iconEnabledColor: const Color(0xFFCAF0F8),
                       iconDisabledColor: Colors.grey,
                       buttonHeight: 50,
-                      buttonWidth: MediaQuery.of(context).size.width * 0.8,
+                      buttonWidth: MediaQuery
+                          .of(context)
+                          .size
+                          .width * 0.8,
                       buttonPadding: const EdgeInsets.only(left: 14, right: 14),
                       buttonDecoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(14),
@@ -308,12 +345,21 @@ class _permissionscreenState extends State<permissionscreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
-
-                  const SizedBox(
-                    height: 15,
-                  ),
+                  contanershow == true ?
+                  contanertoshow(
+                    chosedate:showclenderto() ,
+                    firsdate:
+                    datestyle(
+                      Datename: "${selectedate.day}",
+                      Monthname: "${selectedate.month}",
+                      Yearname: "${selectedate.year}",
+                    ),
+                    seconddate: "",
+                  ) :
+                  const SizedBox( height: 5,),
+                  const SizedBox(height: 5,),
                   ElevatedButton(
                     onPressed: () {
                       go();
@@ -330,7 +376,7 @@ class _permissionscreenState extends State<permissionscreen> {
                         minimumSize: const Size.fromHeight(50)),
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 10,
                   ),
                 ],
               ),
@@ -342,4 +388,18 @@ class _permissionscreenState extends State<permissionscreen> {
   }
 
   void go() {}
+
+  showclenderto() {
+    DatePicker.showDatePicker(context,
+        showTitleActions: true,
+        minTime: DateTime(2022, 1,1),
+        maxTime: DateTime(2050, 12,1),
+        onConfirm: (date) {
+          selectedate = date;
+          setState(() {});
+        },
+        currentTime: selectedate,
+        locale: lang);
+  }
+
 }

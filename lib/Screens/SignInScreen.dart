@@ -131,7 +131,7 @@ class _SignInScreenState extends State<SignInScreen> {
                               ]),
                           ElevatedButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, "HomePage");
+                              Navigator.pushNamed(context, "MenuScreen");
                             },
                             child: const Text("Sign In"),
                             style: ElevatedButton.styleFrom(
