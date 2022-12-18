@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:my_com/Screens/MenuScreen.dart';
+import 'package:my_com/Screens/PermissionContenu.dart';
 import 'package:my_com/Screens/PermissionScreen.dart';
 import 'package:my_com/Screens/RegistrationScreen.dart';
 import 'package:my_com/Screens/SignInScreen.dart';
@@ -26,6 +27,7 @@ class My_Com extends StatelessWidget {
           "Registration": (_) => Registration(),
           "MenuScreen": (_) => MenuScreen(),
           "permissionscreen": (_) => permissionscreen(),
+          "permissioncontenu": (_) => permissiocontenu(),
 
         }
     );

@@ -2,11 +2,10 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:my_com/Basic/Colorrs.dart';
-import 'package:my_com/Widget/contanertoshow.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
 import 'package:my_com/Widget/visablerow.dart';
 
-import '../Widget/datestyle.dart';
+
 
 class permissionscreen extends StatefulWidget {
   static var RoutName = "permissionscreen";
@@ -50,8 +49,7 @@ class _permissionscreenState extends State<permissionscreen> {
   String? seelectedValue;
   bool isvisable = false;
   bool contanershow = false;
-  LocaleType lang = LocaleType.ar;
-  DateTime selectedate = DateTime.now();
+
   var formkey = GlobalKey<FormState>();
 
   @override
@@ -347,19 +345,7 @@ class _permissionscreenState extends State<permissionscreen> {
                   const SizedBox(
                     height: 10,
                   ),
-                  contanershow == true ?
-                  contanertoshow(
-                    chosedate:showclenderto() ,
-                    firsdate:
-                    datestyle(
-                      Datename: "${selectedate.day}",
-                      Monthname: "${selectedate.month}",
-                      Yearname: "${selectedate.year}",
-                    ),
-                    seconddate: "",
-                  ) :
-                  const SizedBox( height: 5,),
-                  const SizedBox(height: 5,),
+                 const SizedBox(height: 10,),
                   ElevatedButton(
                     onPressed: () {
                       go();
@@ -387,19 +373,11 @@ class _permissionscreenState extends State<permissionscreen> {
     );
   }
 
-  void go() {}
-
-  showclenderto() {
-    DatePicker.showDatePicker(context,
-        showTitleActions: true,
-        minTime: DateTime(2022, 1,1),
-        maxTime: DateTime(2050, 12,1),
-        onConfirm: (date) {
-          selectedate = date;
-          setState(() {});
-        },
-        currentTime: selectedate,
-        locale: lang);
+  void go() {
+    if(contanershow == true){
+      Navigator.pushNamed(context, "permissioncontenu");
+    }
   }
+
 
 }

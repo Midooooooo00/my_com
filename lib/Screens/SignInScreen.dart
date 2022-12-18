@@ -97,8 +97,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             errorname: "Your ID",
                             labeltext: "Your ID",
                             security: false,
-                            icontag:
-                                const Icon(Icons.keyboard_alt_outlined),
+                            icontag: const Icon(Icons.keyboard_alt_outlined),
                           ),
                           const SizedBox(
                             height: 20,
@@ -125,8 +124,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ),
                                 const Text(
                                   "Show My Password",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold),
+                                  style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ]),
                           ElevatedButton(
@@ -160,11 +158,9 @@ class _SignInScreenState extends State<SignInScreen> {
                             decoration: BoxDecoration(
                                 color: Colorrs.Eight,
                                 borderRadius: BorderRadius.circular(30)),
-                            width:
-                                MediaQuery.of(context).size.width * 0.4 - 5,
+                            width: MediaQuery.of(context).size.width * 0.4 - 5,
                             height:
-                                MediaQuery.of(context).size.height * 0.2 -
-                                    5,
+                                MediaQuery.of(context).size.height * 0.2 - 5,
                             child: Image.asset(
                               "assets/photo/dev.png",
                               fit: BoxFit.fill,
@@ -173,8 +169,6 @@ class _SignInScreenState extends State<SignInScreen> {
                           const SizedBox(
                             height: 15,
                           ),
-
-                          
                         ])))),
           ]),
         ),
