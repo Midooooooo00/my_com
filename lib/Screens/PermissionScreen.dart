@@ -143,7 +143,7 @@ class _permissionscreenState extends State<permissionscreen> {
                         fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   textfieldcustom(
                     errorname: "كود الموظف",
@@ -152,7 +152,7 @@ class _permissionscreenState extends State<permissionscreen> {
                     icontag: const Icon(Icons.numbers),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   textfieldcustom(
                     errorname: "اسم الموظف",
@@ -161,7 +161,7 @@ class _permissionscreenState extends State<permissionscreen> {
                     icontag: const Icon(Icons.keyboard_alt_outlined),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   DropdownButtonHideUnderline(
                     child: DropdownButton2(
@@ -343,7 +343,7 @@ class _permissionscreenState extends State<permissionscreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                  const SizedBox(height: 10,),
                   ElevatedButton(
@@ -362,7 +362,7 @@ class _permissionscreenState extends State<permissionscreen> {
                         minimumSize: const Size.fromHeight(50)),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                 ],
               ),

@@ -19,7 +19,7 @@ class My_Com extends StatelessWidget {
     return MaterialApp(
 
         debugShowCheckedModeBanner: false,
-        initialRoute: "permissionscreen",
+        initialRoute: "MyCustomWidget",
         routes: {
           "SignInScreen": (_) => SignInScreen(),
           "HomePage": (_) => HomePage(),

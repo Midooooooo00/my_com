@@ -161,7 +161,7 @@ class _permissiocontenuState extends State<permissiocontenu> {
                   onPressed: () {
                     Sendtogo();
                   },
-                  child: const Text("Sign In"),
+                  child: const Text("Send"),
                   style: ElevatedButton.styleFrom(
                       foregroundColor: Colorrs.Nine,
                       backgroundColor: Colorrs.Fourth,
