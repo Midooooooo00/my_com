@@ -8,8 +8,8 @@ class exam extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.95,
       width: MediaQuery.of(context).size.width * 0.95,
-      padding: EdgeInsets.all(20),
-      margin: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
       decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
