@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_com/Basic/Colorrs.dart';
+import 'package:my_com/Basic/DialogUtils.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 
@@ -22,7 +24,9 @@ class _SignInScreenState extends State<Registration> {
   String? selectedValue;
 
   var formkey = GlobalKey<FormState>();
-
+  var emailcontroller = TextEditingController();
+  var passcontroller = TextEditingController();
+  var empname = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return
@@ -97,6 +101,7 @@ class _SignInScreenState extends State<Registration> {
                     height: 20,
                   ),
                   textfieldcustom(
+                    cont: emailcontroller,
                     errorname: "Code ID",
                     labeltext: "Code ID",
                     security: false,
@@ -106,6 +111,7 @@ class _SignInScreenState extends State<Registration> {
                     height: 20,
                   ),
                   textfieldcustom(
+                    cont: empname,
                     errorname: "Full Name",
                     labeltext: "Full Name",
                     security: false,
@@ -115,6 +121,7 @@ class _SignInScreenState extends State<Registration> {
                     height: 20,
                   ),
                   textfieldcustom(
+                    cont: passcontroller,
                     errorname: "Password",
                     labeltext: "Password",
                     security: showpassword == false ? true : false,
@@ -248,10 +255,21 @@ class _SignInScreenState extends State<Registration> {
       ),
     );
   }
-
+  var authservice = FirebaseAuth.instance;
   void createaccount() {
     if (formkey.currentState?.validate() == false) {
       return;
     }
+    showloding(context, "Loading....");
+    authservice.createUserWithEmailAndPassword(email: emailcontroller.text,
+        password: passcontroller.text)
+        .then((userCredential) {
+          hideloading(context);
+          showMessege(context, (userCredential.user?.email)??"");
+    })
+        .onError((error, stackTrace) {
+      hideloading(context);
+      showMessege(context, error.toString());
+    });
   }
 }

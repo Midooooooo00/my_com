@@ -51,7 +51,8 @@ class _permissionscreenState extends State<permissionscreen> {
   bool contanershow = false;
 
   var formkey = GlobalKey<FormState>();
-
+  var empcode =  TextEditingController();
+  var empname =  TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,6 +147,7 @@ class _permissionscreenState extends State<permissionscreen> {
                     height: 15,
                   ),
                   textfieldcustom(
+                    cont:empcode ,
                     errorname: "كود الموظف",
                     labeltext: "كود الموظف",
                     security: false,
@@ -155,6 +157,7 @@ class _permissionscreenState extends State<permissionscreen> {
                     height: 15,
                   ),
                   textfieldcustom(
+                    cont: empname,
                     errorname: "اسم الموظف",
                     labeltext: "اسم الموظف رباعي",
                     security: false,

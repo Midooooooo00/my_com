@@ -12,7 +12,8 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   bool showpassword = false;
   var formkey = GlobalKey<FormState>();
-
+  var empid =  TextEditingController();
+  var emppass =  TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,6 +95,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             height: 15,
                           ),
                           textfieldcustom(
+                            cont: empid,
                             errorname: "Your ID",
                             labeltext: "Your ID",
                             security: false,
@@ -103,6 +105,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             height: 20,
                           ),
                           textfieldcustom(
+                            cont: emppass,
                             errorname: "Password",
                             labeltext: "Password",
                             security: showpassword == false ? true : false,

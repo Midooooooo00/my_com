@@ -5,12 +5,13 @@ class  textfieldcustom extends StatelessWidget  {
   String errorname;
   bool security;
   Icon icontag;
+  var cont =  TextEditingController();
 
-
-  textfieldcustom({required this.labeltext,required this.security,required this.icontag,required this.errorname});
+  textfieldcustom({required this.labeltext,required this.security,required this.icontag,required this.errorname,required this.cont});
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller:cont ,
         validator:(text){
           if(text==null || text.trim().isEmpty){
             return "Please Enter $errorname";

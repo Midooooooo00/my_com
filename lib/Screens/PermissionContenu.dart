@@ -16,7 +16,8 @@ class _permissiocontenuState extends State<permissiocontenu> {
 
   DateTime selectedate = DateTime.now();
   var formkey = GlobalKey<FormState>();
-
+  var locition =  TextEditingController();
+  var locitionto =  TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,6 +89,7 @@ class _permissiocontenuState extends State<permissiocontenu> {
                   height: 15,
                 ),
                 textfieldcustom(
+                   cont:locition ,
                     labeltext: "جهة المأمورية",
                     security: false,
                     icontag: const Icon(Icons.place),
@@ -96,6 +98,7 @@ class _permissiocontenuState extends State<permissiocontenu> {
                   height: 15,
                 ),
                 textfieldcustom(
+                    cont:locitionto ,
                     labeltext: "الغرض من المأمورية",
                     security: false,
                     icontag: const Icon(Icons.place),
