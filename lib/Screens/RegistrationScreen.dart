@@ -102,8 +102,8 @@ class _SignInScreenState extends State<Registration> {
                   ),
                   textfieldcustom(
                     cont: emailcontroller,
-                    errorname: "Code ID",
-                    labeltext: "Code ID",
+                    errorname: "Email",
+                    labeltext: "Email",
                     security: false,
                     icontag: const Icon(Icons.keyboard_alt_outlined),
                   ),

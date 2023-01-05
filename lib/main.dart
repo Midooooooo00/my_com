@@ -6,7 +6,7 @@ import 'package:my_com/Screens/MenuScreen.dart';
 import 'package:my_com/Screens/PermissionContenu.dart';
 import 'package:my_com/Screens/PermissionScreen.dart';
 import 'package:my_com/Screens/RegistrationScreen.dart';
-import 'package:my_com/Screens/SignInScreen.dart';
+import 'package:my_com/Screens/login/SignInScreen.dart';
 import 'package:my_com/Screens/SplashScreen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'Screens/HomePage.dart';

@@ -82,7 +82,7 @@ class _SecondClassState extends State<SecondClass>
     )..addStatusListener(
         (status) {
           if (status == AnimationStatus.completed) {
-            Navigator.pushNamed(context, "SignInScreen");
+            Navigator.pushReplacementNamed(context, "SignInScreen");
             Timer(
               Duration(milliseconds: 300),
               () {
