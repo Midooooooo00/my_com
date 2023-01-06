@@ -1,16 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:my_com/Basic/DialogUtils.dart';
+import 'package:my_com/Basic/base.dart';
 
-abstract class loginnavigator{
-  void showloadingdailog({String Message="Loading....."});
-  void hideloadingdailog();
-  void showmassegedailog(String Message);
+
+abstract class loginnavigator extends BaseNavigator{
+   void goto ();
 }
-class loginviewmode extends  ChangeNotifier {
-  loginnavigator? navigator;
-
-  var authservice = FirebaseAuth.instance;
+class loginviewmode extends  BaseViewModel <loginnavigator> {
+   var authservice = FirebaseAuth.instance;
 
   void login(String email, String password) async {
     try {
@@ -18,7 +14,8 @@ class loginviewmode extends  ChangeNotifier {
       var credential = await authservice.signInWithEmailAndPassword(
           email: email, password: password);
       navigator?.hideloadingdailog();
-      navigator?.showmassegedailog(credential.user?.email??"");
+      navigator?.showmassegedailog(credential.user?.phoneNumber??"Succesfuly");
+      navigator?.goto();
       
     } on FirebaseAuthException catch (e) {
       navigator?.hideloadingdailog();

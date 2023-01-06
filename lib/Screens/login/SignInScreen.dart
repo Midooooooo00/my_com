@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_com/Basic/Colorrs.dart';
-import 'package:my_com/Basic/DialogUtils.dart';
+import 'package:my_com/Basic/base.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
 import 'package:provider/provider.dart';
 import 'loginviewmode.dart';
@@ -11,22 +11,19 @@ class SignInScreen extends StatefulWidget {
   @override
   State<SignInScreen> createState() => _SignInScreenState();
   }
-class _SignInScreenState extends State<SignInScreen>
+class _SignInScreenState extends BaseState<SignInScreen,loginviewmode>
 implements loginnavigator
 {
  bool showpassword = false;
   var formkey = GlobalKey<FormState>();
   var empid =  TextEditingController();
   var emppass =  TextEditingController();
-  late loginviewmode viewmodel ;
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    viewmodel = loginviewmode();
-    viewmodel.navigator = this ;
+  loginviewmode initVewModel() {
+   return loginviewmode();
   }
-  Widget build(BuildContext context) {
+  @override
+   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
@@ -208,20 +205,8 @@ implements loginnavigator
     viewmodel.login(empid.text, emppass.text);
   }
 
-  @override
-  void hideloadingdailog() {
- hideloading(context);
+ @override
+    void goto() {
+   Navigator.pushReplacementNamed(context, "MenuScreen");
   }
-
-  @override
-  void showloadingdailog({String Message = "Loading....."}) {
- showloding(context, Message);
-  }
-
-  @override
-  void showmassegedailog(String Message) {
-  showMessege(context, Message);
-  }
-
-    
 }
