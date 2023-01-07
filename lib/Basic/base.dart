@@ -6,6 +6,7 @@ abstract class BaseNavigator {
   void showloadingdailog({String Message="Loading....."});
   void hideloadingdailog();
   void showmassegedailog(String Message);
+
 }
 class BaseViewModel <Nav extends BaseNavigator>extends ChangeNotifier{
     Nav? navigator;

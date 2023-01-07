@@ -25,8 +25,7 @@ class _SignInScreenState extends BaseState<Registration,regstrationviewmodel>
     'User'
   ];
   String? selectedValue;
-
-  var formkey = GlobalKey<FormState>();
+   var formkey = GlobalKey<FormState>();
   var emailcontroller = TextEditingController();
   var passcontroller = TextEditingController();
   var empname = TextEditingController();
@@ -186,6 +185,7 @@ class _SignInScreenState extends BaseState<Registration,regstrationviewmodel>
                         onChanged: (value) {
                           setState(() {
                             selectedValue = value as String;
+
                           });
                         },
                         icon: const Icon(
@@ -272,7 +272,7 @@ class _SignInScreenState extends BaseState<Registration,regstrationviewmodel>
     if (formkey.currentState?.validate() == false) {
       return;
     }
-    viewmodel.registar(emailcontroller.text, passcontroller.text);
+    viewmodel.registar(emailcontroller.text, passcontroller.text,empname.text,selectedValue??"");
   }
 
  }

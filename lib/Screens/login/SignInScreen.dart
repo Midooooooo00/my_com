@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:my_com/Basic/Colorrs.dart';
 import 'package:my_com/Basic/base.dart';
 import 'package:my_com/Widget/textfieldcustom.dart';
@@ -18,10 +20,14 @@ implements loginnavigator
   var formkey = GlobalKey<FormState>();
   var empid =  TextEditingController();
   var emppass =  TextEditingController();
+  late Box loginbox;
   @override
   loginviewmode initVewModel() {
    return loginviewmode();
+   createBox();
   }
+  
+
   @override
    Widget build(BuildContext context) {
     return Scaffold(
@@ -35,8 +41,8 @@ implements loginnavigator
                 // bottom: Radius.elliptical(MediaQuery.of(context).size.width, 55.0),
                 )),
         backgroundColor: Colorrs.Fifth,
-        // shadowColor: Colors.red,
-        // foregroundColor: Colors.transparent,
+         shadowColor: Colors.red,
+         foregroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
         title: Text(
@@ -143,7 +149,6 @@ implements loginnavigator
                                 ]),
                             ElevatedButton(
                               onPressed: () {
-
                               Sigmin();
                                },
                               child: const Text("Sign In"),
@@ -209,4 +214,16 @@ implements loginnavigator
     void goto() {
    Navigator.pushReplacementNamed(context, "MenuScreen");
   }
+
+  void createBox() async{
+    loginbox = await Hive.openBox("LoginData");
+  }
+
+  @override
+  void logindatasve() {
+    loginbox.put("Email", empid.text);
+    loginbox.put("Password", emppass.text);
+         }
+
+
 }
