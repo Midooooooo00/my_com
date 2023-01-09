@@ -25,9 +25,12 @@ class loginviewmode extends  BaseViewModel <loginnavigator> {
 
       }
 
-    } on FirebaseAuthException catch (e) {
+    }on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        navigator?.showmassegedailog("Please Check Your Email & Password");
+      } else if (e.code == 'wrong-password') {
+        navigator?.showmassegedailog("Please Check Your Email & Password");
+      }
       navigator?.showmassegedailog("Please Check Your Email & Password");
 
-    }
-  }
-}
+    }}}
