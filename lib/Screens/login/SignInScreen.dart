@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:my_com/Basic/Colorrs.dart';
@@ -24,7 +25,6 @@ implements loginnavigator
   @override
   loginviewmode initVewModel() {
    return loginviewmode();
-   createBox();
   }
   
 
@@ -152,7 +152,7 @@ implements loginnavigator
                               Sigmin();
                                },
                               child: const Text("Sign In"),
-                              style: ElevatedButton.styleFrom(
+                              style:ElevatedButton.styleFrom(
                                   foregroundColor: Colorrs.Nine,
                                   backgroundColor: Colorrs.Fourth,
                                   shape: const StadiumBorder(),
@@ -164,11 +164,8 @@ implements loginnavigator
                             ),
                             Text(
                               'Programming By',
-                              style: TextStyle(
-                                color: Colorrs.Nine,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 17,
-                              ),
+                              style:GoogleFonts.acme(color:Colorrs.Nine,fontWeight:FontWeight.w600,fontSize: 16 ),
+
                             ),
                             const SizedBox(
                               height: 10,
@@ -215,15 +212,9 @@ implements loginnavigator
    Navigator.pushReplacementNamed(context, "MenuScreen");
   }
 
-  void createBox() async{
-    loginbox = await Hive.openBox("LoginData");
-  }
 
-  @override
-  void logindatasve() {
-    loginbox.put("Email", empid.text);
-    loginbox.put("Password", emppass.text);
-         }
+
+
 
 
 }

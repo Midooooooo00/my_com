@@ -47,6 +47,7 @@ dependencies:
   firebase_auth:
   flutterfire: ^0.0.1
   cloud_firestore: ^4.3.1
+  google_fonts: ^3.0.1
 
 
 dev_dependencies:

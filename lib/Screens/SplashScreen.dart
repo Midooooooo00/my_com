@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:my_com/Basic/Colorrs.dart';
 
 class MyCustomWidget extends StatefulWidget {
@@ -128,11 +129,7 @@ class _SecondClassState extends State<SecondClass>
                 padding: EdgeInsets.only(top: 80),
                 child: Text(
                   'Programming By',
-                  style: TextStyle(
-                    color: Colorrs.Ten,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                  ),
+                  style: GoogleFonts.acme(color:Colorrs.Nine,fontWeight:FontWeight.w600,fontSize: 18 ),
                 ),
               ),
             ],
