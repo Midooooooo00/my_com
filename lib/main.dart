@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:my_com/Model/SharedUser.dart';
 import 'package:my_com/Screens/MenuScreen.dart';
 import 'package:my_com/Screens/PermissionContenu.dart';
 import 'package:my_com/Screens/PermissionScreen.dart';
@@ -41,7 +42,7 @@ main()async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
   Directory dir = await getApplicationDocumentsDirectory();
-  await Hive.initFlutter(dir.path);
-  Hive.openBox("mycom");
+       Hive.registerAdapter(ShareUserAdapter());
+   await Hive.initFlutter(dir.path);
   runApp(My_Com());
 }

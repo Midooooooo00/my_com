@@ -1,7 +1,7 @@
 
 import 'package:hive/hive.dart';
 
-part 'ShareUser.g.dart';
+part 'SharedUser.g.dart';
 @HiveType(typeId: 0)
 class ShareUser{
   @HiveField(0)
