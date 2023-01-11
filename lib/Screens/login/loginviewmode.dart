@@ -1,12 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_com/Basic/base.dart';
 import 'package:my_com/Data_Base/My_DataBase.dart';
+import 'package:my_com/Model/SharedUser.dart';
+import 'package:my_com/Model/cache.dart';
 
 
 abstract class loginnavigator extends BaseNavigator{
    void goto ();
 }
 class loginviewmode extends  BaseViewModel <loginnavigator> {
+
   var authservice = FirebaseAuth.instance;
 
   void login(String email, String password) async {
@@ -22,6 +25,8 @@ class loginviewmode extends  BaseViewModel <loginnavigator> {
             "User Not Found,Check Your Username & Password");
       } else {
         navigator?.goto();
+        var userr = ShareUser(Name: retrivedUser.fullname.toString(), username: retrivedUser.email.toString(), password: password);
+        cache.saveuser(userr);
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

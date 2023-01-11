@@ -4,15 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_com/Basic/Colorrs.dart';
+import 'package:my_com/Model/SharedUser.dart';
+import 'package:my_com/Model/cache.dart';
+
 
 class MyCustomWidget extends StatefulWidget {
   static var RoutName = "MyCustomWidget";
+
 
   @override
   _MyCustomWidgetState createState() => _MyCustomWidgetState();
 }
 
 class _MyCustomWidgetState extends State<MyCustomWidget> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,9 +86,9 @@ class _SecondClassState extends State<SecondClass>
       vsync: this,
       duration: Duration(milliseconds: 600),
     )..addStatusListener(
-        (status) {
+        (status)  async {
           if (status == AnimationStatus.completed) {
-            Navigator.pushReplacementNamed(context, "SignInScreen");
+           Navigator.pushReplacementNamed(context, "SignInScreen") ;
             Timer(
               Duration(milliseconds: 300),
               () {
@@ -129,7 +134,7 @@ class _SecondClassState extends State<SecondClass>
                 padding: EdgeInsets.only(top: 80),
                 child: Text(
                   'Programming By',
-                  style: GoogleFonts.acme(color:Colorrs.Nine,fontWeight:FontWeight.w600,fontSize: 18 ),
+                  style: GoogleFonts.acme(color:Colorrs.Ten,fontWeight:FontWeight.w600,fontSize: 18 ),
                 ),
               ),
             ],
